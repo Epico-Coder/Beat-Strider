@@ -3,3 +3,9 @@
 ################################################################################
 
 /BeatStrider/x64
+/BeatStrider/BeatStrider.sln
+/BeatStrider/BeatStrider.vcxproj
+/BeatStrider/BeatStrider.vcxproj.filters
+/BeatStrider/BeatStrider.vcxproj.user
+/.vs
+/BeatStrider/.vs/BeatStrider/v17
