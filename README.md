@@ -1,2 +1,2 @@
 # Beat-Strider
-My first game using SFML in C++
+A Rhythm/Shooter Game made using SFML.
