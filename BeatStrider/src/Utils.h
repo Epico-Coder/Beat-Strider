@@ -15,3 +15,15 @@ void WriteTextFile(int ROWS, int COLS, const std::string& filePath, const std::v
 std::vector<std::vector<int>> ReadCSVFile(const std::string& filePath, int& ROWS, int& COLS);
 
 std::vector<sf::Texture> GetTexturesFromFolder(const std::string& filePath);
+
+class RoundedRectangle
+{
+public:
+    RoundedRectangle(float width, float height, float radius, int points, sf::Vector2f position, sf::Color color);
+    
+    void Draw(sf::RenderWindow& window);
+
+private:
+    sf::ConvexShape shape;
+
+};

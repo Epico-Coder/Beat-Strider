@@ -116,3 +116,44 @@ std::vector<sf::Texture> GetTexturesFromFolder(const std::string& filePath)
 
     return textures;
 }
+
+RoundedRectangle::RoundedRectangle(float width, float height, float radius, int points, sf::Vector2f position, sf::Color color)
+{
+    shape.setPosition(position);
+    shape.setPointCount(4 * points);
+    shape.setFillColor(color);
+
+    const float pi = 3.14159f;
+
+    // Top-left corner
+    for (int i = 0; i < points; i++)
+    {
+        float angle = (pi / 2) / (points - 1) * i;
+        shape.setPoint(i, sf::Vector2f(radius * (1 - cos(angle)), radius * (1 - sin(angle))));
+    }
+
+    // Top-right corner
+    for (int i = 0; i < points; i++)
+    {
+        float angle = (pi / 2) / (points - 1) * i;
+        shape.setPoint(points + i, sf::Vector2f(width - radius + radius * sin(angle), radius * (1 - cos(angle))));
+    }
+
+    // Bottom-right corner
+    for (int i = 0; i < points; i++) {
+        float angle = (pi / 2) / (points - 1) * i;
+        shape.setPoint(2 * points + i, sf::Vector2f(width - radius + radius * cos(angle), height - radius + radius * sin(angle)));
+    }
+
+    // Bottom-left corner
+    for (int i = 0; i < points; i++)
+    {
+        float angle = (pi / 2) / (points - 1) * i;
+        shape.setPoint(3 * points + i, sf::Vector2f(radius * (1 - sin(angle)), height - radius + radius * cos(angle)));
+    }
+}
+
+void RoundedRectangle::Draw(sf::RenderWindow& window)
+{
+    window.draw(shape);
+}

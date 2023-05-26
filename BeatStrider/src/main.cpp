@@ -62,7 +62,7 @@ int main()
     }
     
     // Notes
-    Notes notes(50, 50, 1.0f, sf::Vector2f(200, (HEIGHT - HEIGHT / 4.0f) - 10), sf::Vector2f(WIDTH - 400, HEIGHT / 4.0f), 100.0f);
+    Notes notes("levels/moonlight.csv", 25, 1.0f, sf::Vector2f(200, (HEIGHT - HEIGHT / 4.0f) - 10), sf::Vector2f(WIDTH - 400, HEIGHT / 4.0f), 0.1f);
 
     // Player
     Player player("resources/Heroes/Knight/Idle/Idle-Sheet.png", "resources/Heroes/Knight/Run/Run-Sheet.png");
@@ -103,7 +103,7 @@ int main()
 
         player.Update(delta, clock_forever.getElapsedTime());
 
-        notes.Update();
+        notes.Update(delta);
 
         // Draw the level
         for (int i = 0; i < LEVEL_ROWS; i++) {
